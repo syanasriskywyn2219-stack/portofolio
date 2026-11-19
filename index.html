@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- =====================================================================
+       EDIT: DATA METADATA & SEO (Ganti sesuai kebutuhan sebelum deploy)
+       ===================================================================== -->
+  <title>Syanas Risky Wahyu Wardani Setiawan — UI Designer &amp; Web Developer</title>
+  <meta name="description" content="Portofolio resmi Syanas Risky Wahyu Wardani Setiawan, UI Designer &amp; Web Developer dari Kota Mojokerto. Membangun produk digital dengan tampilan visual menarik dan fungsional.">
+  <meta name="theme-color" content="#fce7f3">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Syanas Risky Wahyu Wardani Setiawan — UI Designer &amp; Web Developer">
+  <meta property="og:description" content="UI Designer dan Web Developer yang berfokus menciptakan produk digital dengan tampilan visual yang menarik sekaligus fungsional.">
+  <!-- EDIT: ganti dengan URL asli setelah deploy ke Vercel -->
+  <meta property="og:url" content="https://portofolio-syanas.vercel.app">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Syanas Risky Wahyu Wardani Setiawan — UI Designer &amp; Web Developer">
+  <meta name="twitter:description" content="UI Designer dan Web Developer dari Kota Mojokerto, Indonesia.">
+
+  <!-- Favicon SVG Inline (Tema Pink Soft & Sparkle) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23f472b6'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='28' fill='%23ffffff'%3ESR%3C/text%3E%3Ccircle cx='50' cy='14' r='4' fill='%23fef08a'/%3E%3C/svg%3E">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Quicksand untuk kesan manis, bersih, dan profesional -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Skrip Pencegahan Flash Tema (Berjalan sebelum render body) -->
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('syanas-portfolio-theme');
+        if (savedTheme === 'dark' || savedTheme === 'light') {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {
+        // Fallback aman jika localStorage diblokir
+      }
+    })();
+  </script>
+
+  <style>
+    /* =====================================================================
+       VARIABEL WARNA & TIPOGRAFI (:root)
+       Kontras teks & latar dirancang memenuhi standar WCAG AA
+       ===================================================================== */
+    :root {
+      /* Mode Terang (Default - Soft Pink & Clean White) */
+      --bg-primary: #fffafb;
+      --bg-secondary: #fdf2f8;
+      --bg-card: #ffffff;
+      --bg-nav: rgba(255, 250, 251, 0.88);
+      
+      --text-primary: #2d1b24;
+      --text-secondary: #5e4351;
+      --text-muted: #765868;
+      
+      --accent-primary: #be185d;      /* Pink Rose gelap untuk kontras teks >= 4.5:1 */
+      --accent-primary-hover: #9d174d;
+      --accent-soft: #fce7f3;
+      --accent-border: #fbcfe8;
+      --accent-glow: rgba(236, 72, 153, 0.14);
+      
+      --badge-bg: #fdf2f8;
+      --badge-text: #9d174d;
+      --badge-border: #f9a8d4;
+      
+      --shadow-sm: 0 2px 8px rgba(190, 24, 93, 0.05);
+      --shadow-md: 0 10px 28px rgba(190, 24, 93, 0.08);
+      --focus-ring: #be185d;
+      
+      --font-heading: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      --transition: 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Mode Gelap Otomatis via prefers-color-scheme jika belum diatur manual */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg-primary: #181116;
+        --bg-secondary: #22171f;
+        --bg-card: #281b24;
+        --bg-nav: rgba(24, 17, 22, 0.88);
+        
+        --text-primary: #fdf2f8;
+        --text-secondary: #e2c6d5;
+        --text-muted: #bfa0b1;
+        
+        --accent-primary: #f472b6;
+        --accent-primary-hover: #f9a8d4;
+        --accent-soft: #3b2232;
+        --accent-border: #522e45;
+        --accent-glow: rgba(244, 114, 182, 0.16);
+        
+        --badge-bg: #361f2e;
+        --badge-text: #fbcfe8;
+        --badge-border: #613551;
+        
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+        --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.35);
+        --focus-ring: #f9a8d4;
+      }
+    }
+
+    /* Mode Gelap Manual via Toggle Button */
+    [data-theme="dark"] {
+      --bg-primary: #181116;
+      --bg-secondary: #22171f;
+      --bg-card: #281b24;
+      --bg-nav: rgba(24, 17, 22, 0.88);
+      
+      --text-primary: #fdf2f8;
+      --text-secondary: #e2c6d5;
+      --text-muted: #bfa0b1;
+      
+      --accent-primary: #f472b6;
+      --accent-primary-hover: #f9a8d4;
+      --accent-soft: #3b2232;
+      --accent-border: #522e45;
+      --accent-glow: rgba(244, 114, 182, 0.16);
+      
+      --badge-bg: #361f2e;
+      --badge-text: #fbcfe8;
+      --badge-border: #613551;
+      
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.35);
+      --focus-ring: #f9a8d4;
+    }
+
+    /* =====================================================================
+       RESET & DASAR AKSESIBILITAS
+       ===================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text-primary);
+      background-color: var(--bg-primary);
+      background-image:
+        radial-gradient(circle at 12% 10%, var(--accent-glow) 0%, transparent 38%),
+        radial-gradient(circle at 88% 35%, var(--accent-glow) 0%, transparent 42%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+      transition: background-color var(--transition), color var(--transition);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--text-primary);
+      line-height: 1.25;
+      margin-top: 0;
+    }
+
+    a {
+      color: var(--accent-primary);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    a:hover {
+      color: var(--accent-primary-hover);
+    }
+
+    /* Fokus Keyboard Jelas (WCAG) */
+    :focus-visible {
+      outline: 3px solid var(--focus-ring);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    /* Tautan Lewati ke Konten (Skip Link) */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: var(--accent-primary);
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      z-index: 1000;
+      transition: top 0.2s ease;
+    }
+
+    [data-theme="dark"] .skip-link {
+      color: #181116;
+    }
+
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* =====================================================================
+       NAVIGASI ATAS (STICKY HEADER)
+       ===================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--bg-nav);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--accent-border);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 68px;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    .brand-dot {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      color: var(--accent-primary);
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      display: inline-block;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      border-radius: var(--radius-full);
+    }
+
+    .nav-links a:hover {
+      background-color: var(--accent-soft);
+      color: var(--accent-primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .theme-toggle, .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 38px;
+      padding: 0 13px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--accent-border);
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), background-color var(--transition), border-color var(--transition);
+    }
+
+    .theme-toggle:hover, .lang-toggle:hover {
+      background-color: var(--accent-soft);
+      border-color: var(--accent-primary);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* =====================================================================
+       SECTION 1: HERO
+       ===================================================================== */
+    .hero-section {
+      padding: 68px 0 56px;
+    }
+
+    .hero-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-lg);
+      padding: 44px 40px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Dekorasi sudut manis tanpa gambar eksternal */
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      top: -45px;
+      right: -45px;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background-color: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      color: var(--accent-primary);
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      font-size: clamp(1.85rem, 4vw, 2.75rem);
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-role {
+      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+      font-weight: 600;
+      color: var(--accent-primary);
+      margin-bottom: 16px;
+    }
+
+    .hero-tagline {
+      font-size: 1.08rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      max-width: 68ch;
+      margin-bottom: 14px;
+    }
+
+    .hero-summary {
+      font-size: 0.98rem;
+      color: var(--text-secondary);
+      max-width: 72ch;
+      margin-bottom: 28px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      background-color: var(--accent-primary);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+      box-shadow: 0 6px 18px rgba(190, 24, 93, 0.22);
+      transition: transform var(--transition), background-color var(--transition);
+    }
+
+    [data-theme="dark"] .btn-primary {
+      color: #181116;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-primary-hover);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    [data-theme="dark"] .btn-primary:hover {
+      color: #181116;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: var(--radius-full);
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      border: 1px solid var(--accent-border);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: transform var(--transition), background-color var(--transition);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--accent-soft);
+      color: var(--accent-primary);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+      .hero-card {
+        padding: 30px 22px;
+      }
+    }
+
+    /* =====================================================================
+       SECTION UMUM
+       ===================================================================== */
+    section {
+      padding: 42px 0;
+    }
+
+    .section-header {
+      margin-bottom: 26px;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-primary);
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 1.95rem);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .section-subtitle {
+      color: var(--text-secondary);
+      font-size: 0.96rem;
+      margin: 0;
+    }
+
+    /* =====================================================================
+       SECTION 2: PENGALAMAN (FILTER & ACCORDION)
+       ===================================================================== */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .filter-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-right: 4px;
+    }
+
+    .filter-btn {
+      padding: 7px 15px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--accent-border);
+      background-color: var(--bg-card);
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .filter-btn:hover {
+      background-color: var(--accent-soft);
+      color: var(--accent-primary);
+    }
+
+    .filter-btn[aria-pressed="true"] {
+      background-color: var(--accent-primary);
+      border-color: var(--accent-primary);
+      color: #ffffff;
+    }
+
+    [data-theme="dark"] .filter-btn[aria-pressed="true"] {
+      color: #181116;
+    }
+
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .exp-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .exp-card:hover {
+      border-color: var(--accent-primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .exp-card[hidden] {
+      display: none;
+    }
+
+    .exp-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 24px;
+      background: transparent;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      color: var(--text-primary);
+      font-family: var(--font-body);
+    }
+
+    .exp-header-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .exp-role {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    .exp-meta {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .exp-period {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+      background-color: var(--accent-soft);
+      color: var(--accent-primary);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .exp-chevron {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--accent-border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-primary);
+      transition: transform var(--transition);
+    }
+
+    .exp-trigger[aria-expanded="true"] .exp-chevron {
+      transform: rotate(180deg);
+    }
+
+    .exp-panel {
+      padding: 0 24px 22px;
+      border-top: 1px dashed var(--accent-border);
+    }
+
+    /* Jika JS dimatikan, konten tetap terbuka & terbaca */
+    .exp-panel[hidden] {
+      display: none;
+    }
+
+    .exp-duties {
+      margin: 16px 0 14px;
+      padding-left: 20px;
+      color: var(--text-secondary);
+    }
+
+    .exp-duties li {
+      margin-bottom: 8px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag-pill {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      background-color: var(--badge-bg);
+      border: 1px solid var(--badge-border);
+      color: var(--badge-text);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* =====================================================================
+       SECTION 3: PROYEK
+       ===================================================================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .project-preview {
+      height: 130px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--accent-soft) 0%, var(--bg-secondary) 100%);
+      border: 1px solid var(--accent-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      color: var(--accent-primary);
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    /* =====================================================================
+       SECTION 4: KEAHLIAN DAN ALAT
+       ===================================================================== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .skill-box {
+      background-color: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .skill-box-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-primary);
+    }
+
+    /* =====================================================================
+       SECTION 5: SERTIFIKASI DAN PENDIDIKAN
+       ===================================================================== */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 18px;
+    }
+
+    .edu-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-md);
+      padding: 22px 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .edu-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .edu-inst {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    /* =====================================================================
+       SECTION 6: KONTAK
+       ===================================================================== */
+    .contact-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-lg);
+      padding: 34px 32px;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--accent-border);
+      color: var(--text-primary);
+      font-weight: 500;
+      font-size: 0.95rem;
+      word-break: break-word;
+    }
+
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background-color: var(--accent-soft);
+      color: var(--accent-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .copy-email-btn {
+      margin-left: auto;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--accent-border);
+      background-color: var(--bg-card);
+      color: var(--accent-primary);
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .copy-email-btn:hover {
+      background-color: var(--accent-soft);
+    }
+
+    @media (max-width: 768px) {
+      .contact-card {
+        grid-template-columns: 1fr;
+        padding: 26px 20px;
+      }
+    }
+
+    /* =====================================================================
+       FOOTER
+       ===================================================================== */
+    .site-footer {
+      margin-top: 40px;
+      padding: 28px 0;
+      border-top: 1px solid var(--accent-border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    /* =====================================================================
+       ANIMASI MUNCUL SAAT SCROLL (Menghormati prefers-reduced-motion)
+       ===================================================================== */
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .js-enabled .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .js-enabled .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .js-enabled .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    /* =====================================================================
+       CSS PRINT SEDERHANA (AGAR BISA DICETAK SEBAGAI CV)
+       ===================================================================== */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #111111 !important;
+        font-size: 11pt;
+        line-height: 1.45;
+      }
+      .site-header,
+      .filter-bar,
+      .hero-cta-group,
+      .copy-email-btn,
+      .project-preview,
+      .exp-chevron {
+        display: none !important;
+      }
+      .hero-card,
+      .exp-card,
+      .project-card,
+      .skill-box,
+      .edu-card,
+      .contact-card {
+        box-shadow: none !important;
+        border: 1px solid #dddddd !important;
+        background: #ffffff !important;
+        padding: 14px !important;
+        margin-bottom: 12px !important;
+        break-inside: avoid;
+      }
+      .exp-card[hidden] {
+        display: block !important;
+      }
+      .exp-panel[hidden] {
+        display: block !important;
+      }
+      section {
+        padding: 12px 0 !important;
+      }
+      a {
+        color: #111111 !important;
+        text-decoration: underline;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Tautan Aksesibilitas Lewati ke Konten -->
+  <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
+
+  <!-- =====================================================================
+       NAVIGASI ATAS (STICKY)
+       ===================================================================== -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="#hero" class="brand-logo" aria-label="Beranda Syanas Risky">
+        <span class="brand-dot" aria-hidden="true">✦</span>
+        <span>Syanas.</span>
+      </a>
+
+      <nav aria-label="Navigasi Utama">
+        <ul class="nav-links">
+          <li><a href="#pengalaman">Pengalaman</a></li>
+          <li><a href="#proyek">Proyek</a></li>
+          <li><a href="#keahlian">Keahlian &amp; Alat</a></li>
+          <li><a href="#pendidikan">Pendidikan</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Ganti bahasa tampilan antara Indonesia dan Inggris">
+          <span aria-hidden="true">🌐</span>
+          <span id="lang-label">ID / EN</span>
+        </button>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Ganti tema warna terang atau gelap">
+          <span id="theme-icon" aria-hidden="true">🌙</span>
+          <span id="theme-text">Gelap</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ===================================================================
+         1. HERO SECTION
+         EDIT: Ubah nama, profesi, atau ringkasan diri di bagian ini
+         =================================================================== -->
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <div class="hero-card reveal">
+          <div class="hero-badge">
+            <span aria-hidden="true">🌸</span>
+            <span>Kota Mojokerto, Indonesia</span>
+          </div>
+
+          <h1 class="hero-title">Syanas Risky Wahyu Wardani Setiawan</h1>
+          <p class="hero-role">UI Designer / Web Developer</p>
+
+          <p class="hero-tagline" data-i18n="hero_tagline">
+            Merancang antarmuka digital yang estetik, ramah pengguna, dan menerjemahkannya menjadi kode web yang responsif.
+          </p>
+
+          <p class="hero-summary" data-i18n="hero_summary">
+            Saya adalah seorang UI Designer dan Web Developer yang berfokus menciptakan produk digital dengan tampilan visual yang menarik sekaligus fungsional. Berbekal keahlian dalam menggunakan Figma serta teknologi pengembangan web seperti HTML, CSS, JavaScript, dan React, saya mampu menerjemahkan konsep desain menjadi kode yang responsif secara presisi. Kombinasi kemampuan desain dan pemrograman ini memungkinkan saya menjembatani tim kreatif dan teknis untuk membangun website yang ramah pengguna serta siap pakai.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#kontak" class="btn-primary" data-i18n="cta_contact">
+              <span>Hubungi Saya</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <button type="button" onclick="window.print()" class="btn-secondary" data-i18n="cta_print">
+              <span aria-hidden="true">🖨️</span>
+              <span>Cetak CV</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         2. PENGALAMAN (ACCORDION + FILTER KEAHLIAN)
+         EDIT: Tambah atau sesuaikan riwayat pengalaman & atribut data-skills
+         =================================================================== -->
+    <section id="pengalaman">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow" data-i18n="exp_eyebrow">Rekam Jejak</span>
+          <h2 class="section-title" data-i18n="exp_title">Pengalaman Kerja</h2>
+          <p class="section-subtitle" data-i18n="exp_subtitle">
+            Pilih kategori keahlian untuk menyaring pengalaman, atau klik kartu untuk melihat rincian tanggung jawab.
+          </p>
+        </div>
+
+        <!-- Filter Pengalaman Berdasarkan Keahlian -->
+        <div class="filter-bar reveal" role="group" aria-label="Filter pengalaman berdasarkan keahlian">
+          <span class="filter-label" data-i18n="filter_label">Filter Keahlian:</span>
+          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true" data-i18n="filter_all">Semua</button>
+          <button type="button" class="filter-btn" data-filter="administrasi" aria-pressed="false">Administrasi &amp; Ketelitian</button>
+          <button type="button" class="filter-btn" data-filter="komunikasi" aria-pressed="false">Komunikasi &amp; Presentasi</button>
+          <button type="button" class="filter-btn" data-filter="visual" aria-pressed="false">Visual &amp; Pelayanan</button>
+        </div>
+
+        <div class="experience-list">
+          <!-- Pengalaman 1 -->
+          <article class="exp-card reveal" data-skills="administrasi komunikasi">
+            <h3 style="margin:0;">
+              <button type="button" class="exp-trigger" aria-expanded="true" aria-controls="exp-panel-1" id="exp-btn-1">
+                <span class="exp-header-info">
+                  <span class="exp-role">Staf Magang Administrasi</span>
+                  <span class="exp-meta">
+                    <span>Kantor Notaris Mirza Kusumaningayu, S.H., M.Kn. • Mojokerto</span>
+                    <span class="exp-period">April 2026 – Oktober 2026</span>
+                  </span>
+                </span>
+                <span class="exp-chevron" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </span>
+              </button>
+            </h3>
+            <div id="exp-panel-1" class="exp-panel" role="region" aria-labelledby="exp-btn-1">
+              <ul class="exp-duties">
+                <li>Mengelola dan memverifikasi kelengkapan lebih dari 30 dokumen legalitas serta berkas klien setiap minggunya dengan tingkat ketelitian tinggi.</li>
+                <li>Membantu proses pengarsipan data fisik maupun digital agar mudah dicari dan diakses oleh tim.</li>
+                <li>Berkomunikasi secara profesional dengan klien yang datang untuk memastikan alur pelayanan administrasi berjalan lancar.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag-pill">Administrasi Dokumen</span>
+                <span class="tag-pill">Pengarsipan Digital</span>
+                <span class="tag-pill">Komunikasi Klien</span>
+                <span class="tag-pill">Ketelitian Tinggi</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pengalaman 2 -->
+          <article class="exp-card reveal" data-skills="komunikasi visual">
+            <h3 style="margin:0;">
+              <button type="button" class="exp-trigger" aria-expanded="false" aria-controls="exp-panel-2" id="exp-btn-2">
+                <span class="exp-header-info">
+                  <span class="exp-role">Live Stream Host (E-Commerce)</span>
+                  <span class="exp-meta">
+                    <span>Freelance / Online Shop • Mojokerto</span>
+                    <span class="exp-period">Februari 2025 – Maret 2026</span>
+                  </span>
+                </span>
+                <span class="exp-chevron" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </span>
+              </button>
+            </h3>
+            <div id="exp-panel-2" class="exp-panel" role="region" aria-labelledby="exp-btn-2">
+              <ul class="exp-duties">
+                <li>Memandu sesi live streaming produk fashion, perawatan rambut, dan perlengkapan seserahan dengan rata-rata penonton mencapai 100+ per sesi untuk mendorong peningkatan penjualan harian.</li>
+                <li>Membangun interaksi aktif dengan audiens secara langsung guna memahami kebutuhan pembeli dan menjawab pertanyaan produk secara cepat.</li>
+                <li>Menyusun alur presentasi produk yang menarik secara visual sehingga mampu mempertahankan perhatian penonton selama sesi berlangsung.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag-pill">Presentasi Visual</span>
+                <span class="tag-pill">Public Speaking</span>
+                <span class="tag-pill">E-Commerce</span>
+                <span class="tag-pill">Interaksi Audiens</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pengalaman 3 -->
+          <article class="exp-card reveal" data-skills="visual komunikasi administrasi">
+            <h3 style="margin:0;">
+              <button type="button" class="exp-trigger" aria-expanded="false" aria-controls="exp-panel-3" id="exp-btn-3">
+                <span class="exp-header-info">
+                  <span class="exp-role">Kasir &amp; Crew Outlet</span>
+                  <span class="exp-meta">
+                    <span>Retail / Gerai • Mojokerto</span>
+                    <span class="exp-period">2023 – 2024</span>
+                  </span>
+                </span>
+                <span class="exp-chevron" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </span>
+              </button>
+            </h3>
+            <div id="exp-panel-3" class="exp-panel" role="region" aria-labelledby="exp-btn-3">
+              <ul class="exp-duties">
+                <li>Melayani transaksi pembayaran dan kebutuhan lebih dari 50 pelanggan setiap hari dengan cepat, ramah, dan akurat.</li>
+                <li>Memastikan kerapian tata letak produk (visual merchandising) dan kebersihan area toko demi menciptakan pengalaman belanja yang nyaman bagi pengunjung.</li>
+                <li>Bekerja sama dengan tim operasional dalam mengelola stok barang harian dan mencapai target pelayanan gerai.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag-pill">Visual Merchandising</span>
+                <span class="tag-pill">Pelayanan Pelanggan</span>
+                <span class="tag-pill">Akurasi Transaksi</span>
+                <span class="tag-pill">Kerja Tim</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         3. PROYEK
+         EDIT: Tambahkan proyek lain atau tautan demo/GitHub jika tersedia
+         =================================================================== -->
+    <section id="proyek">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow" data-i18n="proj_eyebrow">Karya Pilihan</span>
+          <h2 class="section-title" data-i18n="proj_title">Proyek</h2>
+          <p class="section-subtitle" data-i18n="proj_subtitle">
+            Implementasi desain antarmuka dan pengembangan front-end yang telah dikerjakan.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div>
+              <div class="project-preview" aria-hidden="true">
+                <!-- Ilustrasi SVG Inline Etalase Toko Baju -->
+                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"></path>
+                </svg>
+              </div>
+              <h3 class="project-title">Website Toko Baju (E-Commerce)</h3>
+              <p class="project-desc">
+                Merancang antarmuka pengguna dan mengembangkan halaman katalog produk pakaian yang responsif menggunakan HTML dan CSS, berhasil menyajikan tampilan etalase belanja online yang rapi dan mudah dinavigasi.
+              </p>
+            </div>
+            <div class="tag-row">
+              <span class="tag-pill">UI Design</span>
+              <span class="tag-pill">HTML</span>
+              <span class="tag-pill">CSS</span>
+              <span class="tag-pill">Responsive Web</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         4. KEAHLIAN DAN ALAT
+         =================================================================== -->
+    <section id="keahlian">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow" data-i18n="skill_eyebrow">Kompetensi</span>
+          <h2 class="section-title" data-i18n="skill_title">Keahlian dan Alat</h2>
+          <p class="section-subtitle" data-i18n="skill_subtitle">
+            Teknologi pengembangan web, perangkat desain, dan keahlian pendukung kolaborasi tim.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-box reveal">
+            <h3 class="skill-box-title">
+              <span aria-hidden="true">💻</span>
+              <span>Pengembangan Web</span>
+            </h3>
+            <div class="tag-row">
+              <span class="tag-pill">HTML</span>
+              <span class="tag-pill">CSS</span>
+              <span class="tag-pill">JavaScript</span>
+              <span class="tag-pill">React</span>
+              <span class="tag-pill">Responsive Design</span>
+            </div>
+          </div>
+
+          <div class="skill-box reveal">
+            <h3 class="skill-box-title">
+              <span aria-hidden="true">🎨</span>
+              <span>Desain UI &amp; Alat</span>
+            </h3>
+            <div class="tag-row">
+              <span class="tag-pill">Figma</span>
+              <span class="tag-pill">UI Design</span>
+              <span class="tag-pill">Visual Merchandising</span>
+              <span class="tag-pill">Pengarsipan Digital</span>
+            </div>
+          </div>
+
+          <div class="skill-box reveal">
+            <h3 class="skill-box-title">
+              <span aria-hidden="true">✨</span>
+              <span>Keahlian Profesional</span>
+            </h3>
+            <div class="tag-row">
+              <span class="tag-pill">Komunikasi Klien</span>
+              <span class="tag-pill">Presentasi Produk</span>
+              <span class="tag-pill">Administrasi &amp; Ketelitian</span>
+              <span class="tag-pill">Kolaborasi Tim</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         5. SERTIFIKASI DAN PENDIDIKAN
+         EDIT: Ganti data placeholder di bawah ini dengan riwayat pendidikan & sertifikasi asli Anda
+         =================================================================== -->
+    <section id="pendidikan">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow" data-i18n="edu_eyebrow">Latar Belakang</span>
+          <h2 class="section-title" data-i18n="edu_title">Sertifikasi dan Pendidikan</h2>
+          <p class="section-subtitle" data-i18n="edu_subtitle">
+            Riwayat pendidikan formal serta pelatihan terkait desain antarmuka dan pengembangan web.
+          </p>
+        </div>
+
+        <div class="edu-grid">
+          <!-- EDIT: ganti dengan data asli pendidikan Anda -->
+          <div class="edu-card reveal">
+            <span class="exp-period" style="margin-bottom: 10px;">Pendidikan</span>
+            <h3 class="edu-title"><!-- EDIT: ganti dengan data asli -->SMK / Perguruan Tinggi — Jurusan Terkait</h3>
+            <p class="edu-inst"><!-- EDIT: ganti dengan data asli -->Institusi Pendidikan, Mojokerto</p>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">
+              <!-- EDIT: ganti dengan data asli -->Fokus pembelajaran pada pengembangan web, desain antarmuka digital, dan administrasi perkantoran.
+            </p>
+          </div>
+
+          <!-- EDIT: ganti dengan data asli sertifikasi/pelatihan Anda -->
+          <div class="edu-card reveal">
+            <span class="exp-period" style="margin-bottom: 10px;">Sertifikasi / Pelatihan</span>
+            <h3 class="edu-title"><!-- EDIT: ganti dengan data asli -->Pelatihan UI Design &amp; Front-End Web Development</h3>
+            <p class="edu-inst"><!-- EDIT: ganti dengan data asli -->Penyelenggara Pelatihan / Bootcamp</p>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">
+              <!-- EDIT: ganti dengan data asli -->Pendalaman pembuatan wireframe di Figma serta implementasi antarmuka responsif menggunakan HTML, CSS, JavaScript, dan React.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         6. KONTAK
+         EDIT: Ganti URL LinkedIn / GitHub dengan tautan profil asli Anda
+         =================================================================== -->
+    <section id="kontak">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div>
+            <span class="section-eyebrow" data-i18n="contact_eyebrow">Mari Terhubung</span>
+            <h2 class="section-title" data-i18n="contact_title">Hubungi Saya</h2>
+            <p class="section-subtitle" style="margin-bottom: 16px;" data-i18n="contact_desc">
+              Tertarik berdiskusi mengenai peluang kerja UI Designer, Front-End Web Developer, atau kolaborasi proyek digital? Silakan hubungi saya melalui kontak berikut.
+            </p>
+            <a href="mailto:syanasriskywyn2219@gmail.com" class="btn-primary">
+              <span aria-hidden="true">✉️</span>
+              <span data-i18n="send_email">Kirim Email Langsung</span>
+            </a>
+          </div>
+
+          <div class="contact-items">
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">📧</span>
+              <a href="mailto:syanasriskywyn2219@gmail.com" id="email-text">syanasriskywyn2219@gmail.com</a>
+              <button type="button" id="copy-email-btn" class="copy-email-btn" aria-label="Salin alamat email">Salin</button>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">📍</span>
+              <span>Kota Mojokerto, Indonesia</span>
+            </div>
+
+            <!-- EDIT: ganti dengan data asli URL LinkedIn & GitHub -->
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">🔗</span>
+              <div>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn (Ganti URL)</a>
+                <span aria-hidden="true"> • </span>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub (Ganti URL)</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       FOOTER SEDERHANA
+       ===================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p style="margin: 0;">
+        &copy; <span id="current-year">2026</span> Syanas Risky Wahyu Wardani Setiawan • Kota Mojokerto, Indonesia.
+      </p>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       JAVASCRIPT INTERAKTIF (TANPA LIBRARY EKSTERNAL)
+       ===================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      // Tandai bahwa JS aktif agar animasi scroll berjalan progresif
+      document.documentElement.classList.add('js-enabled');
+
+      // 1. Update tahun otomatis di footer
+      var yearEl = document.getElementById('current-year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+
+      // 2. Toggle Tema Terang / Gelap + localStorage dengan try/catch
+      var themeToggleBtn = document.getElementById('theme-toggle');
+      var themeIcon = document.getElementById('theme-icon');
+      var themeText = document.getElementById('theme-text');
+
+      function updateThemeButton(theme) {
+        if (!themeIcon || !themeText) return;
+        if (theme === 'dark') {
+          themeIcon.textContent = '☀️';
+          themeText.textContent = 'Terang';
+        } else {
+          themeIcon.textContent = '🌙';
+          themeText.textContent = 'Gelap';
+        }
+      }
+
+      var initialTheme = document.documentElement.getAttribute('data-theme') || 'light';
+      updateThemeButton(initialTheme);
+
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          updateThemeButton(next);
+          try {
+            localStorage.setItem('syanas-portfolio-theme', next);
+          } catch (e) {
+            // Abaikan error penyimpanan jika browser membatasi storage
+          }
+        });
+      }
+
+      // 3. Accordion Pengalaman (button dengan aria-expanded dan aria-controls)
+      var accordionTriggers = document.querySelectorAll('.exp-trigger');
+      accordionTriggers.forEach(function (btn) {
+        var panelId = btn.getAttribute('aria-controls');
+        var panel = document.getElementById(panelId);
+        // Sinkronisasi awal saat JS aktif
+        if (panel && btn.getAttribute('aria-expanded') === 'false') {
+          panel.hidden = true;
+        }
+
+        btn.addEventListener('click', function () {
+          var isExpanded = btn.getAttribute('aria-expanded') === 'true';
+          var nextState = !isExpanded;
+          btn.setAttribute('aria-expanded', String(nextState));
+          if (panel) {
+            panel.hidden = !nextState;
+          }
+        });
+      });
+
+      // 4. Filter Pengalaman Berdasarkan Keahlian (aria-pressed)
+      var filterButtons = document.querySelectorAll('.filter-btn');
+      var expCards = document.querySelectorAll('.exp-card');
+
+      filterButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var selectedFilter = btn.getAttribute('data-filter');
+
+          filterButtons.forEach(function (b) {
+            b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+          });
+
+          expCards.forEach(function (card) {
+            var skills = (card.getAttribute('data-skills') || '').split(' ');
+            if (selectedFilter === 'all' || skills.indexOf(selectedFilter) !== -1) {
+              card.hidden = false;
+            } else {
+              card.hidden = true;
+            }
+          });
+        });
+      });
+
+      // 5. Tombol Salin Email Cepat
+      var copyBtn = document.getElementById('copy-email-btn');
+      var emailEl = document.getElementById('email-text');
+      if (copyBtn && emailEl) {
+        copyBtn.addEventListener('click', function () {
+          var email = emailEl.textContent.trim();
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(email).then(function () {
+              copyBtn.textContent = 'Tersalin!';
+              setTimeout(function () {
+                copyBtn.textContent = 'Salin';
+              }, 2000);
+            }).catch(function () {});
+          }
+        });
+      }
+
+      // 6. Bilingual Toggle (Indonesia / Inggris untuk teks UI & ringkasan)
+      var langToggleBtn = document.getElementById('lang-toggle');
+      var langLabel = document.getElementById('lang-label');
+      var currentLang = 'id';
+
+      var translations = {
+        id: {
+          hero_tagline: 'Merancang antarmuka digital yang estetik, ramah pengguna, dan menerjemahkannya menjadi kode web yang responsif.',
+          hero_summary: 'Saya adalah seorang UI Designer dan Web Developer yang berfokus menciptakan produk digital dengan tampilan visual yang menarik sekaligus fungsional. Berbekal keahlian dalam menggunakan Figma serta teknologi pengembangan web seperti HTML, CSS, JavaScript, dan React, saya mampu menerjemahkan konsep desain menjadi kode yang responsif secara presisi. Kombinasi kemampuan desain dan pemrograman ini memungkinkan saya menjembatani tim kreatif dan teknis untuk membangun website yang ramah pengguna serta siap pakai.',
+          cta_contact: 'Hubungi Saya →',
+          cta_print: '🖨️ Cetak CV',
+          exp_eyebrow: 'Rekam Jejak',
+          exp_title: 'Pengalaman Kerja',
+          exp_subtitle: 'Pilih kategori keahlian untuk menyaring pengalaman, atau klik kartu untuk melihat rincian tanggung jawab.',
+          filter_label: 'Filter Keahlian:',
+          filter_all: 'Semua',
+          proj_eyebrow: 'Karya Pilihan',
+          proj_title: 'Proyek',
+          proj_subtitle: 'Implementasi desain antarmuka dan pengembangan front-end yang telah dikerjakan.',
+          skill_eyebrow: 'Kompetensi',
+          skill_title: 'Keahlian dan Alat',
+          skill_subtitle: 'Teknologi pengembangan web, perangkat desain, dan keahlian pendukung kolaborasi tim.',
+          edu_eyebrow: 'Latar Belakang',
+          edu_title: 'Sertifikasi dan Pendidikan',
+          edu_subtitle: 'Riwayat pendidikan formal serta pelatihan terkait desain antarmuka dan pengembangan web.',
+          contact_eyebrow: 'Mari Terhubung',
+          contact_title: 'Hubungi Saya',
+          contact_desc: 'Tertarik berdiskusi mengenai peluang kerja UI Designer, Front-End Web Developer, atau kolaborasi proyek digital? Silakan hubungi saya melalui kontak berikut.',
+          send_email: 'Kirim Email Langsung'
+        },
+        en: {
+          hero_tagline: 'Designing aesthetic, user-friendly digital interfaces and translating them into responsive web code.',
+          hero_summary: 'I am a UI Designer and Web Developer focused on creating digital products with appealing visuals and strong functionality. Equipped with skills in Figma as well as web technologies such as HTML, CSS, JavaScript, and React, I accurately translate design concepts into responsive code. This combination of design and programming enables me to bridge creative and technical teams to build user-friendly, production-ready websites.',
+          cta_contact: 'Contact Me →',
+          cta_print: '🖨️ Print CV',
+          exp_eyebrow: 'Track Record',
+          exp_title: 'Work Experience',
+          exp_subtitle: 'Filter experience by skill category, or click a card to expand responsibilities.',
+          filter_label: 'Filter by Skill:',
+          filter_all: 'All',
+          proj_eyebrow: 'Selected Work',
+          proj_title: 'Projects',
+          proj_subtitle: 'User interface design and front-end development implementations.',
+          skill_eyebrow: 'Competencies',
+          skill_title: 'Skills and Tools',
+          skill_subtitle: 'Web development technologies, design tools, and team collaboration strengths.',
+          edu_eyebrow: 'Background',
+          edu_title: 'Certifications and Education',
+          edu_subtitle: 'Formal education history and training in UI design and web development.',
+          contact_eyebrow: 'Get in Touch',
+          contact_title: 'Contact Me',
+          contact_desc: 'Interested in discussing UI Designer or Front-End Web Developer opportunities? Feel free to reach out via the contacts below.',
+          send_email: 'Send Direct Email'
+        }
+      };
+
+      if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', function () {
+          currentLang = currentLang === 'id' ? 'en' : 'id';
+          document.documentElement.setAttribute('lang', currentLang);
+          if (langLabel) {
+            langLabel.textContent = currentLang === 'id' ? 'ID / EN' : 'EN / ID';
+          }
+          var dict = translations[currentLang];
+          document.querySelectorAll('[data-i18n]').forEach(function (el) {
+            var key = el.getAttribute('data-i18n');
+            if (dict[key]) {
+              el.textContent = dict[key];
+            }
+          });
+        });
+      }
+
+      // 7. Animasi Muncul Saat Scroll (Menghormati prefers-reduced-motion)
+      var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var revealElements = document.querySelectorAll('.reveal');
+
+      if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+        revealElements.forEach(function (el) {
+          el.classList.add('is-visible');
+        });
+      } else {
+        var observer = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(function (el) {
+          observer.observe(el);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
